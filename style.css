@@ -4,8 +4,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  color: #ffffe3;
   font-size: 16px;
+}
+html {
+  color: #ffffe3;
 }
 body {
   min-height: 100vh;
@@ -22,6 +24,7 @@ h1 {
   font-weight: 800;
   text-transform: uppercase;
   text-align: center;
+  color: #02d8a6;
 }
 .wrapper {
   width: 700px;
@@ -31,11 +34,101 @@ h1 {
   align-items: center;
   gap: 10px;
 }
+form {
+  width: 100%;
+  position: relative;
+}
 #todo-input {
   width: 100%;
   border-radius: 1000px;
-  border: 1px solid #ffffe3;
+  border: 2px solid #414141;
   padding: 10px 20px;
   background-color: transparent;
   color: #ffffe3;
+}
+
+#todo-input:focus {
+  outline: none;
+}
+#add-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-radius: 1000px;
+  border: none;
+  padding: 0px 20px;
+  background-color: #02d8a6;
+  color: #10100e;
+  cursor: pointer;
+  font-weight: 600;
+}
+#todo-list {
+  width: 100%;
+}
+.todo {
+  display: flex;
+  align-items: center;
+  background-color: #1d1d1b;
+  border-radius: 15px;
+  padding: 0 16px;
+  margin-bottom: 15px;
+}
+.todo .todo-text {
+  padding: 15px;
+  padding-right: 0px;
+  flex-grow: 1;
+  transition: 200ms ease;
+}
+.delete-button {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #414141;
+}
+.delete-button:hover {
+  color: red;
+  transition: 200ms ease;
+}
+.custom-checkbox {
+  background-color: transparent;
+  border: 2px solid #02d8a6;
+  border-radius: 50%;
+  min-height: 20px;
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: 200ms ease;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked ~ .custom-checkbox {
+  background-color: #02d8a6;
+  color: #1d1d1b;
+}
+input[type="checkbox"]:checked ~ .todo-text {
+  text-decoration: line-through;
+  color: #414141;
+}
+input[type="checkbox"] {
+  display: none;
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 12pt;
+  }
+  #add-button {
+    position: unset;
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    height: auto;
+  }
+  h1 {
+    margin-top: 50px;
+    font-size: 15vw;
+  }
 }
